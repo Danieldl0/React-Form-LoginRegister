@@ -2,24 +2,25 @@ import {useForm} from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import YupPassword from "yup-password";
-import { ref } from "yup";
+import { FormRegister } from "../../Components/FormRegister/index";
 
 YupPassword(yup);
 
 const schema = yup.object({
-        nome: yup.string().required("campo obrigatorio"),
-        email: yup.string().email().required(),
+        nome: yup.string().required("Campo obrigatorio"),
+        email: yup.string().email().required("Informe um email valido"),
         senha: yup.string().password()
-        .min(6, "minimo 2 digitos")
+        .required(`
+            a senha deve conter entre 6 a 12 digitos
+            `)
+        .min(6)
         .max(12, "maximo 12 digitos")
         .minSymbols(0, "minimo 1 simbolo")
         .minNumbers(0)
         .minUppercase(0)
-        .minLowercase(0)
-        .required(),
-        confirm_senha: yup.string()
-        .oneOf([yup.ref("senha"),null,"Devem ser iguais"])
-        .required()
+        .minLowercase(0),
+        confirmar_senha: yup.string()
+        .oneOf([yup.ref("senha"), null]).required("As senhas devem ser iguais")
     })
 
     
@@ -41,24 +42,33 @@ function PageRegister(){
             <h2>Cadastro</h2>
 
             <form onSubmit={handleSubmit(sendData)}>
-                <div>
-                    <label >Nome</label>
-                    <input {...register("nome")} maxLength="50" type="text" />
-                    <p>{errors.nome?.message}</p>
-                </div>
-                <div>
-                    <label >Email</label>
-                    <input {...register("email")} maxLength="50" type="email" />
-                </div>
-                <div>
-                    <label >Senha</label>
-                    <input {...register("senha")} maxLength="12" type="text" />
-                    <p>{[errors.senha?.message]}</p>
-                </div>
-                <div>
-                    <label >Confirmar Senha</label>
-                    <input {...register("confirm_senha")} maxLength="12" type="password" />
-                </div>
+                <FormRegister
+                    label = "nome"
+                    register = {register("nome")}
+                    type = "text"
+                    erro = {errors.nome?.message}
+                />
+
+                <FormRegister
+                    label = "email"
+                    register = {register("email")}
+                    type = "email"
+                    erro = {errors.email?.message}
+                />
+                
+                <FormRegister
+                    label = "senha"
+                    register = {register("senha")}
+                    type = "password"
+                    erro = {errors.senha?.message}
+                />
+
+                <FormRegister
+                    label = "confirmar senha"
+                    register = {register("confirmar_senha")}
+                    type = "password"
+                    erro = {errors.confirmar_senha?.message}
+                />
 
                 <button>Click</button>
             </form>  
