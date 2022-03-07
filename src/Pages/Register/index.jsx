@@ -3,6 +3,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import YupPassword from "yup-password";
 import { FormRegister } from "../../Components/FormRegister/index";
+import { Link } from 'react-router-dom';
+
 
 YupPassword(yup);
 
@@ -11,16 +13,15 @@ const schema = yup.object({
         email: yup.string().email().required("Informe um email valido"),
         senha: yup.string().password()
         .required(`
-            a senha deve conter entre 6 a 12 digitos
+            Informe uma senha
             `)
-        .min(6)
-        .max(12, "maximo 12 digitos")
-        .minSymbols(0, "minimo 1 simbolo")
+        .min(6,"A senha deve conter entre 6 a 12 digitos")
+        .minSymbols(0)
         .minNumbers(0)
         .minUppercase(0)
         .minLowercase(0),
         confirmar_senha: yup.string()
-        .oneOf([yup.ref("senha"), null]).required("As senhas devem ser iguais")
+        .oneOf([yup.ref("senha"), null], "as senhas devem ser iguais").required("as senhas devem ser iguais")
     })
 
     
@@ -60,6 +61,7 @@ function PageRegister(){
                     label = "senha"
                     register = {register("senha")}
                     type = "password"
+                    length = {12}
                     erro = {errors.senha?.message}
                 />
 
@@ -67,10 +69,14 @@ function PageRegister(){
                     label = "confirmar senha"
                     register = {register("confirmar_senha")}
                     type = "password"
+                    length = {12}
                     erro = {errors.confirmar_senha?.message}
                 />
 
                 <button>Click</button>
+
+                <p>Já possui conta?</p>
+                <Link to={"/"}> fazer login </Link>
             </form>  
         </div>
     ); 

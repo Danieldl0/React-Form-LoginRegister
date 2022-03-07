@@ -1,15 +1,16 @@
 import { PageLogin } from "./Pages/Login";
 import { PageRegister } from "./Pages/Register";
-
-
+import {Routes, Route} from 'react-router-dom';
+import "./style.css"
 
 function App() {
 
   return (
     <div>
-      <h1>Hello World</h1>
-      <PageLogin/>
-      <PageRegister/>
+      <Routes>
+        <Route path="/" element={<PageLogin/>} />
+        <Route path="/Cadastro" element={<PageRegister/>}/>
+      </Routes>
     </div>
   );
 }
