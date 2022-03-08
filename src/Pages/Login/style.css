@@ -1,0 +1,56 @@
+.loginregister-login-form{
+    width: calc(100% - 20px);
+}
+
+.loginregister-login-container{
+    background-color: white;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 200px auto ;
+}
+
+.loginregister-btn{
+    margin: 10px;
+}
+
+.loginregister-btn-newregister{
+    margin: 15px 15px 20px 0px;
+    align-self: end;
+}
+
+@media (max-width: 576px){
+    .loginregister-login-form{
+        background-color: rgb(255, 255, 255);
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 4px;
+        margin-top: 50px;
+        padding: 20px 0px;
+    }
+
+    .loginregister-login-container{
+        background-color: #e7e7e7;
+        padding: 0;
+        margin: 0;
+        max-width: none;
+    }
+
+    .loginregister-div-inputs{
+        width: 99%;
+        padding: 10px;
+    }
+
+    .loginregister-btn{
+        width: 95%;
+    }
+    
+    .loginregister-login-container h2{
+        margin-top: 50px;
+        font-size: 35px;
+    }
+}

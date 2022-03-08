@@ -3,6 +3,8 @@ import { FormRegister } from "../../Components/FormRegister";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
 import { Link } from "react-router-dom";
+import "./style.css";
+
 
     const schema = yup.object({
         email: yup.string().required("Informe seu Email"),
@@ -28,10 +30,11 @@ function PageLogin(){
 
     return (
 
-        <div className="form">
-            <h2>Cadastro</h2>
-            <form onSubmit={handleSubmit(sendData)}>
+        <div className="loginregister-login-container">
+            <h2>Login</h2>
+            <form className="loginregister-login-form" onSubmit={handleSubmit(sendData)}>
                 <FormRegister
+                    label = "Email"
                     type = "email"
                     register = {register("email")}
                     placeholder = "Email"
@@ -39,14 +42,15 @@ function PageLogin(){
             
                 />
                 <FormRegister
+                    label = "Senha"
                     type = "password"
                     register = {register("senha")}
                     placeholder = "Senha"
                     erro = {errors.senha?.message}
                 />
-                <button>Entrar</button>
-                <div className="cadastrar">  
-                    <Link className="link-cadastrar" to={"/Cadastro"}> Criar conta </Link>
+                <button className="btn btn-primary loginregister-btn" >Entrar</button>
+                <div className="loginregister-btn-newregister">  
+                    <Link to={"/Cadastro"}> + Criar conta </Link>
                 </div>
             </form>
         </div>

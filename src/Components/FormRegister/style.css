@@ -1,63 +1,6 @@
-.campos_form p {
-    color: red;
-    margin: 4px;
+.loginregister-div-inputs{
 }
 
-.campos_form{
-    padding: 10px
-}
-
-.campos_form input{
-    position: relative;
-    right: 10px;
-    padding: 8px;
-    width: 100%;
-    border: solid #606d80 2px;
-    border-radius: 8px;
-    color: black;
-}
-
-.campos_form ::placeholder{
-    color: #606d80;
-}
-
-.campos_form input:focus{
-    border: solid #567ebb 3px;
-    outline: none;
-}
-
-.form{
-    color: #dce0e6;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 500px;
-    margin: auto;
-}
-
-.form .cadastrar{
-    display: block;
-    text-align: end;
-    margin: 10px 20px;
-}
-
-.form .cadastrar .link-cadastrar{
-    color: #dce0e6;
-    text-decoration: none;
-}
-
-
-button{
-    padding: 8px;
-    width: 100%;
-    align-self: center;
-    border-radius: 8px;
-    border: solid #2b4c7e52 2px;
-    background-color: #567ebb;
-    color: #dce0e6;
-}
-
-button:hover{
-    background-color: #2b4c7e;
-    cursor: pointer;
+.loginregister-div-inputs p{
+    color: rgba(255, 0, 0, 0.747);
 }

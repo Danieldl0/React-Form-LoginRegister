@@ -4,9 +4,9 @@ import "./style.css";
 export function FormRegister(props){
     return (
 
-        <div className="campos_form">
-            <label> {props.label} </label>
-            <input {...props.register} type={props.type} maxLength={props.length} placeholder={props.placeholder} />
+        <div className="loginregister-div-inputs">
+            <label className="form-label"> {props.label} </label>
+            <input className="form-control loginregister-input" {...props.register} type={props.type} maxLength={props.length} placeholder={props.placeholder} />
             <p className="msg_erro">{props.erro}</p>
         </div>
     );
