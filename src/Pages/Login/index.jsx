@@ -30,14 +30,14 @@ function PageLogin(){
 
     return (
 
-        <div className="loginregister-login-container">
+        <div className="loginregister-login-container ">
             <h2>Login</h2>
-            <form className="loginregister-login-form" onSubmit={handleSubmit(sendData)}>
+            <form className="loginregister-login-form " onSubmit={handleSubmit(sendData)}>
                 <FormRegister
                     label = "Email"
                     type = "email"
                     register = {register("email")}
-                    placeholder = "Email"
+                    placeholder = "email@exemplo.com"
                     erro = {errors.email?.message}
             
                 />
@@ -45,7 +45,7 @@ function PageLogin(){
                     label = "Senha"
                     type = "password"
                     register = {register("senha")}
-                    placeholder = "Senha"
+                    placeholder = "******"
                     erro = {errors.senha?.message}
                 />
                 <button className="btn btn-primary loginregister-btn" >Entrar</button>

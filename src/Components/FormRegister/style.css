@@ -1,6 +1,8 @@
-.loginregister-div-inputs{
+.loginregister-input:focus::placeholder{
+    color: transparent;
 }
 
 .loginregister-div-inputs p{
-    color: rgba(255, 0, 0, 0.747);
+    color: rgba(255, 0, 0, 0.877);
+    margin:3px 0px 15px 5px;
 }
