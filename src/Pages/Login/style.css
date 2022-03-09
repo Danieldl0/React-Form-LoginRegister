@@ -2,10 +2,12 @@
     width: calc(100% - 20px);
     display: flex;
     flex-direction: column;
+    padding: 20px 0px;
+    box-shadow: 0 0px 0px black;
 }
 
 .loginregister-login-container h2{
-    margin: 0px auto 20px;
+    margin: 10px auto;
 }
 
 .loginregister-login-container label{
@@ -18,7 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     margin: 0;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.452);
     border-radius: 4px;
@@ -31,17 +33,16 @@
 }
 
 .loginregister-btn{
-    margin: 10px;
-    width: 180px;
+    margin: 20px 0 10px;
+    width: 200px;
     align-self: center;
-    background-color: red;
 }
 
 .loginregister-btn-newregister{
-    margin: 25px 15px 10px 0px;
-    align-self: end;
-    font-weight: bold;
+    margin: 10px 0 0 0 ;
+    align-self: center;
 }
+
 
 @media (max-width: 576px){
     .loginregister-login-form{

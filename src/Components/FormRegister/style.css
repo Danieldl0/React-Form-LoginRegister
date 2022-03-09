@@ -2,7 +2,19 @@
     color: transparent;
 }
 
+.loginregister-input::placeholder{
+    font-size: 12px;
+}
+
+.loginregister-div-inputs{
+    margin-bottom: 10px;
+}
+
+.loginregister-input{
+    background-color: #dadada2d !important;
+}
+
 .loginregister-div-inputs p{
     color: rgba(255, 0, 0, 0.877);
-    margin:3px 0px 15px 5px;
+    margin:0;
 }

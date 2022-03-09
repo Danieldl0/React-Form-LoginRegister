@@ -50,7 +50,7 @@ function PageLogin(){
                 />
                 <button className="btn btn-primary loginregister-btn" >Entrar</button>
                 <div className="loginregister-btn-newregister">  
-                    <Link to={"/Cadastro"}> + Criar conta </Link>
+                    <Link to={"/Cadastro"}> <button className="btn btn-outline-primary btn-sm">+ Criar conta</button> </Link>
                 </div>
             </form>
         </div>

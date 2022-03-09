@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import YupPassword from "yup-password";
 import { FormRegister } from "../../Components/FormRegister/index";
 import { Link } from 'react-router-dom';
-
+import "./style.css";
 
 YupPassword(yup);
 
@@ -21,7 +21,7 @@ const schema = yup.object({
         .minUppercase(0)
         .minLowercase(0),
         confirmar_senha: yup.string()
-        .oneOf([yup.ref("senha"), null], "as senhas devem ser iguais").required("as senhas devem ser iguais")
+        .oneOf([yup.ref("senha"), null], "As senhas devem ser iguais").required("As senhas devem ser iguais")
     })
 
     
@@ -39,45 +39,47 @@ function PageRegister(){
     }
 
     return(
-        <div> 
-            <h2>Cadastro</h2>
+        <div className="loginregister-login-container "> 
+            <h2 >Cadastro</h2>
 
-            <form onSubmit={handleSubmit(sendData)}>
+            <form className="loginregister-login-form " onSubmit={handleSubmit(sendData)}>
                 <FormRegister
-                    label = "nome"
                     register = {register("nome")}
                     type = "text"
+                    placeholder = "Nome completo"
                     erro = {errors.nome?.message}
                 />
 
                 <FormRegister
-                    label = "email"
                     register = {register("email")}
                     type = "email"
+                    placeholder = "Email"
                     erro = {errors.email?.message}
                 />
                 
                 <FormRegister
-                    label = "senha"
                     register = {register("senha")}
                     type = "password"
                     length = {12}
+                    placeholder = "Senha"
                     erro = {errors.senha?.message}
                 />
 
                 <FormRegister
-                    label = "confirmar senha"
                     register = {register("confirmar_senha")}
                     type = "password"
                     length = {12}
+                    placeholder = "Confirmar Senha"
                     erro = {errors.confirmar_senha?.message}
                 />
 
-                <button>Click</button>
+                <button className="btn btn-primary loginregister-btn">Cadastrar</button>
 
-                <p>Já possui conta?</p>
-                <Link to={"/"}> fazer login </Link>
             </form>  
+            <div className="loginregister-backlogin">
+                    <p>Já possui conta?</p>
+                    <Link to={"/"}> <button className="btn btn-outline-primary btn-sm">Entrar</button> </Link>
+                </div>
         </div>
     ); 
 
