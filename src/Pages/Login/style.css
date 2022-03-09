@@ -34,13 +34,18 @@
 
 .loginregister-btn{
     margin: 20px 0 10px;
-    width: 200px;
+    width: 40%;
     align-self: center;
 }
 
 .loginregister-btn-newregister{
     margin: 10px 0 0 0 ;
     align-self: center;
+}
+
+hr{
+    width: 100%;
+    color: red;
 }
 
 
@@ -57,19 +62,15 @@
 
     .loginregister-login-container{
         width: 95%;
-        padding: 0px;
     }
 
     .loginregister-div-inputs{
         width: 100%;
         padding: 10px;
     }
-
-    .loginregister-btn{
-        width: 95%;
-    }
     
     .loginregister-login-container h2{
         margin-top: 20px;
     }
+
 }

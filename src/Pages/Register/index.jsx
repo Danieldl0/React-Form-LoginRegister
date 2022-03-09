@@ -77,6 +77,7 @@ function PageRegister(){
 
             </form>  
             <div className="loginregister-backlogin">
+                <hr />
                     <p>Já possui conta?</p>
                     <Link to={"/"}> <button className="btn btn-outline-primary btn-sm">Entrar</button> </Link>
                 </div>

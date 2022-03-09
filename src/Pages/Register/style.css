@@ -1,14 +1,13 @@
 .loginregister-backlogin{
     display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 8px;
-    border: 1px solid #c0c0c0;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.425);
-    max-width: 50%;
     align-self: center;
+    width: 100%;
 }
 
 .loginregister-backlogin p{
-    margin: 0px 10px 0 0 ;
+    margin: 0px 0 5px 0 ;
 }
 
