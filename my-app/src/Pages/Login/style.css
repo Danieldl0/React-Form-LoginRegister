@@ -1,0 +1,76 @@
+.loginregister-login-form{
+    width: calc(100% - 20px);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+    box-shadow: 0 0px 0px black;
+}
+
+.loginregister-login-container h2{
+    margin: 10px auto;
+}
+
+.loginregister-login-container label{
+    color: rgba(0, 0, 0, 0.699);
+}
+
+.loginregister-login-container{
+    background-color: white;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 0;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.452);
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+}
+
+.loginregister-btn{
+    margin: 20px 0 10px;
+    width: 40%;
+    align-self: center;
+}
+
+.loginregister-btn-newregister{
+    margin: 10px 0 0 0 ;
+    align-self: center;
+}
+
+hr{
+    width: 100%;
+    color: red;
+}
+
+
+@media (max-width: 576px){
+    .loginregister-login-form{
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        padding: 20px 0px;
+    }
+
+    .loginregister-login-container{
+        width: 95%;
+    }
+
+    .loginregister-div-inputs{
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .loginregister-login-container h2{
+        margin-top: 20px;
+    }
+
+}

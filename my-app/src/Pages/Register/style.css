@@ -1,0 +1,13 @@
+.loginregister-backlogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    align-self: center;
+    width: 100%;
+}
+
+.loginregister-backlogin p{
+    margin: 0px 0 5px 0 ;
+}
+
