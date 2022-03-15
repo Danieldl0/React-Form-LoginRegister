@@ -7,7 +7,7 @@
 }
 
 .loginregister-div-inputs{
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .loginregister-input{
@@ -15,6 +15,7 @@
 }
 
 .loginregister-div-inputs p{
-    color: rgba(255, 0, 0, 0.877);
-    margin:0;
+    color: rgba(255, 0, 0, 0.733);
+    margin: 3px 0 0 5px;
+    font-size: 13px;
 }
