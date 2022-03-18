@@ -3,9 +3,9 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import YupPassword from "yup-password";
 import { FormRegister } from "../../Components/FormRegister/index";
-import { Link, useNavigate } from 'react-router-dom';
-import "./style.css";
+import { useNavigate } from 'react-router-dom';
 import { postUser } from "../../Services/api/registerService"
+import { ButtonNav } from "../../Components/ButtonNav";
 
 YupPassword(yup);
 
@@ -89,11 +89,12 @@ function PageRegister() {
                 <button className="btn btn-primary loginregister-btn">Cadastrar</button>
 
             </form>
-            <div className="loginregister-backlogin">
-                <hr />
-                <p>Já possui conta?</p>
-                <Link to={"/"}> <button className="btn btn-outline-primary btn-sm">Entrar</button> </Link>
-            </div>
+            <hr />
+            <ButtonNav
+                link = "/login"
+                link_name = "Entrar"
+                msg = "Já possui conta?"
+            />
         </div>
     );
 

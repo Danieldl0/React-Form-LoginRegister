@@ -43,10 +43,6 @@
     align-self: center;
 }
 
-hr{
-    width: 100%;
-}
-
 
 @media (max-width: 576px){
     .loginregister-login-container{

@@ -2,9 +2,10 @@ import { useForm } from "react-hook-form";
 import { FormRegister } from "../../Components/FormRegister";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { postLogin } from "../../Services/api/registerService";
+import { ButtonNav } from "../../Components/ButtonNav";
 
 
     const schema = yup.object({
@@ -30,7 +31,7 @@ function PageLogin(){
         try {
             await postLogin(data)
             alert("logado com sucesso");
-            navigate("/home");
+            navigate("/");
         } catch (e) {
             console.log("erro")
             console.log(e)
@@ -58,13 +59,15 @@ function PageLogin(){
                     erro = {errors.senha?.message}
                 />
                 <button className="btn btn-primary loginregister-btn" >Entrar</button>
-                <div className="loginregister-btn-newregister">  
-                    <Link to={"/Cadastro"}> <button className="btn btn-outline-primary btn-sm">+ Criar conta</button> </Link>
-                </div>
             </form>
+            <hr />
+            <ButtonNav
+                link="/cadastro"
+                link_name = "+ Criar Conta"
+                msg = "Não possui uma conta?"
+            />
         </div>
 
-        
     );
 }
 

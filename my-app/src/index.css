@@ -9,3 +9,10 @@
 body{
     background-color: #e7e7e7;
 }
+
+hr{
+    width: 95%;
+    margin: 30px 0 10px 0;
+}
+
+
