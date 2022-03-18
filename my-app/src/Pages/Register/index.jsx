@@ -3,9 +3,9 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import YupPassword from "yup-password";
 import { FormRegister } from "../../Components/FormRegister/index";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./style.css";
-import axios from "axios";
+import { postUser } from "../../Services/api/registerService"
 
 YupPassword(yup);
 
@@ -29,19 +29,20 @@ const schema = yup.object({
 
 function PageRegister() {
 
+    const navigate = useNavigate()
+    
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
 
 
-    function sendData(data) {
+    async function sendData(data) {
         try {
-            axios.post("http://127.0.0.1:8000/users/", {
-                fullName: data.nome,
-                email: data.email,
-                password: data.senha,
-            })
+            await postUser(data)
+           
             alert("cadastro realizado com sucesso")
+            navigate("/")
+        
         } catch (error) {
             alert("erro ao cadastrar")
             console.log(error.message)

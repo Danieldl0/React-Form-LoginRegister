@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from loginregister.models import Usuario
+from loginregister.models import User
 
 # Register your models here.
 
-admin.site.register(Usuario)
+admin.site.register(User)
