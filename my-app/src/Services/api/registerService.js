@@ -7,3 +7,11 @@ export async function postUser(data){
         password: data.senha,
     })
 }
+
+
+export async function postLogin(data){
+    await api.post("/login/",{
+        email: data.email,
+        password: data.senha
+    })
+}

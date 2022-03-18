@@ -39,9 +39,8 @@ function PageRegister() {
     async function sendData(data) {
         try {
             await postUser(data)
-           
             alert("cadastro realizado com sucesso")
-            navigate("/")
+            navigate("/login")
         
         } catch (error) {
             alert("erro ao cadastrar")

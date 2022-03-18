@@ -21,3 +21,20 @@ class RegisterView(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
+
+
+
+class LoginView(APIView):
+    def post(self, request):
+        email = request.data["email"]
+        password = request.data["password"]
+        user = User.objects.filter(email=email).first()
+        if not user:
+            raise serializers.ValidationError("Email não cadastrado")
+        
+        if not user.password == password:
+            raise serializers.ValidationError("Senha errada")
+        
+        return Response({
+            "msg":"sucess"
+        })

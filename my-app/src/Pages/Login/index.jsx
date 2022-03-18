@@ -2,8 +2,9 @@ import { useForm } from "react-hook-form";
 import { FormRegister } from "../../Components/FormRegister";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./style.css";
+import { postLogin } from "../../Services/api/registerService";
 
 
     const schema = yup.object({
@@ -19,13 +20,21 @@ import "./style.css";
 
 function PageLogin(){
 
+    const navigate = useNavigate();
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(schema)
     });
 
 
-    function sendData(data){
-        console.log(data);
+    async function sendData(data){
+        try {
+            await postLogin(data)
+            alert("logado com sucesso");
+            navigate("/home");
+        } catch (e) {
+            console.log("erro")
+            console.log(e)
+        }
     }
 
     return (
