@@ -2,8 +2,8 @@ from rest_framework.views import APIView
 from loginregister.api.serializers import UserSerializer
 from rest_framework.response import Response
 from rest_framework import serializers
-from rest_framework.exceptions import AuthenticationFailed
 from loginregister.models import User
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
@@ -24,8 +24,10 @@ class RegisterView(APIView):
         return Response(serializer.errors)
 
 
-
 class LoginView(APIView):
+
+    permission_classes = (IsAuthenticated,)
+
     def post(self, request):
         email = request.data['email']
         password = request.data['password']
