@@ -31,7 +31,7 @@ function PageLogin(){
         try {
             await postLogin(data)
             alert("logado com sucesso");
-            navigate("/");
+            navigate("/user");
         } catch (e) {
             console.log("erro")
             console.log(e)

@@ -3,7 +3,8 @@ from loginregister.api.serializers import UserSerializer
 from rest_framework.response import Response
 from rest_framework import serializers
 from loginregister.models import User
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.exceptions import AuthenticationFailed
+from rest_framework_simplejwt.tokens import RefreshToken
 
 # Create your views here.
 
@@ -16,8 +17,6 @@ class RegisterView(APIView):
 
         serializer = UserSerializer(data=request.data)
 
-
-
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -25,8 +24,6 @@ class RegisterView(APIView):
 
 
 class LoginView(APIView):
-
-    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
         email = request.data['email']
@@ -40,6 +37,31 @@ class LoginView(APIView):
         if not user.check_password(password):
             raise serializers.ValidationError('Senha inválida')
 
-        return Response({
-            "msg":"certo"
-        })
+        refresh = RefreshToken.for_user(user)
+        token = str(refresh.access_token)
+
+        response = Response()
+
+        response.set_cookie(key="jwt", value=token, httponly=True)
+        response.data = {
+            "jwt": token
+        }
+        return response
+
+
+class UserView(APIView):
+
+    def get(self, request):
+        
+        token = request.COOKIES.get('jwt')
+
+        if not token:
+            raise AuthenticationFailed('Unauthenticated!')
+        
+        
+        user = User.objects.all()
+
+        serializer = UserSerializer(user, many=True)
+
+
+        return Response(serializer.data)

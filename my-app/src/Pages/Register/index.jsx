@@ -11,6 +11,7 @@ YupPassword(yup);
 
 const schema = yup.object({
     nome: yup.string().required("Campo obrigatorio"),
+    sobrenome: yup.string().required("Campo obrigatorio"),
     email: yup.string().email().required("Informe um email valido"),
     senha: yup.string().password()
         .required(`
@@ -59,8 +60,15 @@ function PageRegister() {
                 <FormRegister
                     register={register("nome")}
                     type="text"
-                    placeholder="Nome completo"
+                    placeholder="Primeiro nome"
                     erro={errors.nome?.message}
+                />
+
+                <FormRegister
+                    register = {register("sobrenome")}
+                    type = "text"
+                    placeholder = "Sobrenome"
+                    erro = {errors.sobrenome?.message}
                 />
 
                 <FormRegister
