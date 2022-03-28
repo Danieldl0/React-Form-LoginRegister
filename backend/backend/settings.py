@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
 from pathlib import Path
 
 
@@ -139,4 +138,3 @@ CORS_ALLOW_CREDENTIALS = True
 
 
 AUTH_USER_MODEL = 'loginregister.User'
-

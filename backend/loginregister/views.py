@@ -1,3 +1,4 @@
+import logging
 from rest_framework.views import APIView
 from loginregister.api.serializers import UserSerializer
 from rest_framework.response import Response
@@ -5,11 +6,12 @@ from rest_framework import serializers
 from loginregister.models import User
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework_simplejwt.tokens import RefreshToken
-
+from rest_framework_simplejwt.authentication import JWTAuthentication
 # Create your views here.
 
 
 class RegisterView(APIView):
+
     def post(self, request):
         email = request.data["email"]
         if User.objects.filter(email=email).first():
@@ -17,6 +19,8 @@ class RegisterView(APIView):
 
         serializer = UserSerializer(data=request.data)
 
+
+        logging.debug("teste isso pfv funciona n aguento mais")
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -51,17 +55,20 @@ class LoginView(APIView):
 
 class UserView(APIView):
 
+    validated_user_token = JWTAuthentication()
+
     def get(self, request):
         
         token = request.COOKIES.get('jwt')
+
+        doda = self.validated_user_token.get_validated_token(token)
 
         if not token:
             raise AuthenticationFailed('Unauthenticated!')
         
         
-        user = User.objects.all()
-
-        serializer = UserSerializer(user, many=True)
+        user = User.objects.filter(id = doda['user_id']).get()
+        serializer = UserSerializer(user)
 
 
         return Response(serializer.data)
