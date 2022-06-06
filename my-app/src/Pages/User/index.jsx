@@ -29,17 +29,17 @@ export function PageUser(){
         <div>
             <h2>Usuario</h2>
             
-            <table>
+            <table class="table">
                 <thead>
                     <tr>
+                        <th>id</th>
                         <th>Nome</th>
                         <th>sobrenome</th>
                         <th>email</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {usuario.map(usuario =>{
-                        return(
+                    {
                             <UsuarioItem 
                             key = {usuario.id}
                             id_user = {usuario.id}  
@@ -47,8 +47,7 @@ export function PageUser(){
                             first_name_user = {usuario.first_name}
                             last_name_user = {usuario.last_name}
                         />
-                        )
-                    })}
+                    }
                 </tbody>
             </table>
         </div>
