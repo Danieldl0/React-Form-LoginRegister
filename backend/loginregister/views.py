@@ -71,8 +71,4 @@ class UserView(APIView):
         user = User.objects.filter(id = doda['user_id']).get()
         serializer = UserSerializer(user) 
 
-        """  user = User.objects.all()
-        serializer = UserSerializer(user, many=True) """
-
-
         return Response(serializer.data)
