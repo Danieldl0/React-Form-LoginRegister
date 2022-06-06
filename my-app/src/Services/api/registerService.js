@@ -11,7 +11,7 @@ export async function postUser(data){
 
 
 export async function postLogin(data){
-    await api.post("/login/",{
+    return api.post("/login/",{
         email: data.email,
         password: data.senha
     })

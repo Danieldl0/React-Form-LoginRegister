@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -15,4 +15,8 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name="register"),
     path('login/', LoginView.as_view(), name="login"),
     path('users/', UserView.as_view(), name="usuarios")
+]
+
+urlpatterns += [
+    path('api-auth/', include('rest_framework.urls')),
 ]

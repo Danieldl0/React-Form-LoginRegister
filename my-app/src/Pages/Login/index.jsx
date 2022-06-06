@@ -29,9 +29,11 @@ function PageLogin(){
 
     async function sendData(data){
         try {
-            await postLogin(data)
+            console.log(await postLogin(data))
             alert("logado com sucesso");
+            console.log(data);
             navigate("/user");
+
         } catch (e) {
             console.log("erro")
             console.log(e)

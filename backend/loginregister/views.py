@@ -1,4 +1,4 @@
-import logging
+from secrets import token_bytes
 from rest_framework.views import APIView
 from loginregister.api.serializers import UserSerializer
 from rest_framework.response import Response
@@ -20,7 +20,6 @@ class RegisterView(APIView):
         serializer = UserSerializer(data=request.data)
 
 
-        logging.debug("teste isso pfv funciona n aguento mais")
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -46,7 +45,7 @@ class LoginView(APIView):
 
         response = Response()
 
-        response.set_cookie(key="jwt", value=token, httponly=True)
+        response.set_cookie("jwt", token, httponly=True)
         response.data = {
             "jwt": token
         }
@@ -60,15 +59,20 @@ class UserView(APIView):
     def get(self, request):
         
         token = request.COOKIES.get('jwt')
+        
 
         doda = self.validated_user_token.get_validated_token(token)
-
+        
+        
         if not token:
             raise AuthenticationFailed('Unauthenticated!')
         
         
-        user = User.objects.filter(id = doda['user_id']).get()
-        serializer = UserSerializer(user)
+        """ user = User.objects.filter(id = doda['user_id']).get()
+        serializer = UserSerializer(user)  """
+
+        user = User.objects.all()
+        serializer = UserSerializer(user, many=True)
 
 
         return Response(serializer.data)
